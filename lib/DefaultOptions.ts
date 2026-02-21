@@ -1,7 +1,7 @@
 import type { Options } from "./types";
 
 const DefaultOptions: Options = {
-  modules: ["DisplaySize", "Resize"],
+  modules: ["DisplaySize", "Resize", "AltText"],
   minWidth: 13,
   keyboardSizeDelta: 10,
   overlayStyles: {

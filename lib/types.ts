@@ -1,11 +1,14 @@
 import type { DisplaySize } from "./modules/DisplaySize";
 import type { Resize } from "./modules/Resize";
+import type { AltText } from "./modules/AltText";
 
 export type Modules = (
   | "DisplaySize"
   | "Resize"
+  | "AltText"
   | typeof DisplaySize
   | typeof Resize
+  | typeof AltText
 )[];
 
 export type Options = {
