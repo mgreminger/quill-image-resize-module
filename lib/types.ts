@@ -15,6 +15,8 @@ export type Options = {
   modules: Modules;
   minWidth: number;
   keyboardSizeDelta: number;
+  altTextPlaceholder: string;
+  altTextLabel: string;
   overlayStyles: {
     position: string;
     boxSizing: string;
@@ -40,6 +42,32 @@ export type Options = {
     boxSizing: string;
     opacity: string;
     cursor: string;
+  };
+  altTextContainerStyles: {
+    position: string;
+    display: string;
+    flexDirection: string;
+    alignItems: string;
+    gap: string;
+    top: string;
+    left: string;
+    background: string;
+    border: string;
+    padding: string;
+    borderRadius: string;
+    boxShadow: string;
+  };
+  altTextLabelStyles: {
+    font: string;
+    fontWeight: string;
+    color: string;
+  };
+  altTextTextareaStyles: {
+    border: string;
+    padding: string;
+    font: string;
+    width: string;
+    borderRadius: string;
   };
 };
 

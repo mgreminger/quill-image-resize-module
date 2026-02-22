@@ -10,40 +10,16 @@ export class AltText extends BaseModule {
     }
 
     this.container = document.createElement("label");
-    Object.assign(this.container.style, {
-      position: "absolute",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      gap: "4px",
-      top: "calc(100% + 8px)",
-      left: "0px",
-      background: "white",
-      border: "1px solid #ccc",
-      padding: "4px 8px",
-      borderRadius: "4px",
-      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    });
+    Object.assign(this.container.style, this.options.altTextContainerStyles);
 
     const label = document.createElement("span");
-    label.innerText = "Alt Text:";
-    Object.assign(label.style, {
-      font: "inherit",
-      fontWeight: "bold",
-      color: "#333",
-    });
+    label.innerText = this.options.altTextLabel;
+    Object.assign(label.style, this.options.altTextLabelStyles);
 
     this.textarea = document.createElement("textarea");
-    this.textarea.placeholder = "Image description...";
+    this.textarea.placeholder = this.options.altTextPlaceholder;
     this.textarea.value = this.img.alt || "";
-    Object.assign(this.textarea.style, {
-      border: "1px solid #ddd",
-      padding: "2px 6px",
-      font: "inherit",
-      outline: "none",
-      width: "200px",
-      borderRadius: "2px",
-    });
+    Object.assign(this.textarea.style, this.options.altTextTextareaStyles);
 
     this.textarea.addEventListener("input", this.handleChange);
 
