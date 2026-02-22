@@ -1,41 +1,39 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Quill Image Resize Module Demo</title>
+    <script type="module" crossorigin src="./assets/index-CNLvNQ_6.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CfZ7kyuK.css">
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Quill Image Resize Module Demo</title>
-  <script type="module" crossorigin src="./assets/index-CYFl3jlF.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-7oN3-GhD.css">
-</head>
+  <body>
+    <h1>Quill Image Resize Module Demo</h1>
+    <div id="editor" style="max-height: 500px; overflow: auto">
+      <p>Click on the Image Below to resize</p>
+      <p>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABZVBMVEWOtd9XkdFYkdCOtuJYktBYktGQteE0escxeMY5fchak9FIh8wzesdGhsxRjc9Tjs9JiM03fMj///+oxucyecZgl9OiwuXW5PT4+v3o8PnA1u6Kst9FhczR4fKdv+SDrt37/P58qdtEhMv0+Pz8/f7p8fnv9Pv9/v8/gcpMis6NtN+QtuD5+/2hwuVUj9AzecZdldKSuOHb6PVAgsqFr93O3/FvodduoNd/q9zl7vjs8/ry9/s7f8nk7fe91O01e8e50ezQ4PJZktFwode60uxfltPN3vHP4PJqntbT4vNnm9X+/v+ryOjF2e8+gMqUueHq8fl4p9rX5fT6/P5Lic17qNre6fa80+xlmtRjmdTG2u/f6va2z+t2pdmxzOmuyulmmtWGsN2Drd33+v3Z5vTD2O7b5/X2+f09gMmHsd6px+fV4/NSjs95p9rs8vrJ3PCJst47fslDhMteltN0pNlsn9ZQjM4oVKdUAAAAB3RSTlNI8vFG8fBFF/1aHQAAAAFiS0dEEnu8bAAAAAAHdElNRQfoBwgJBie91u7SAAABiUlEQVRYw+3XV1PCQBAH8NDMQrCAoqhoVATUgNhQUTTYRcWOHRv23j+/mVxCgoDj3b34kH0i/738hpnbmyQMY2KBuFizhTEBVVkZlg5gGaAsAzAAAzAAAzCAsoDdUbI4bYWzsspRXeMqBzjcJasWdes89Q1elDQ2NfuwAU9LQdiKC/Btbiqg/WeICXT41YvOQDBUFnB2oepGa3uUSzuAgJJwpDcK4OrrHygNqDWIlg9pSQwlw/lgZBQPiMvB2F8nsRgYlwNvghiYQMmkSAoklT2YmiYEZtRdDM3OEQHReW0sFhYJAODiuslKLeEDwKV0wvKKiA2AKPh1RFrEBgBW19Y1IUIASP9iY1MFtrZJAGk7MgFFEMgA6WTvoO4uKQB7qBvDAvaLuwdYwOGRL/87i7rHeIA7fHIqPw4SZ8o4nGMCUuUu0pdX18om5G7wgYK6BTrgDvMs3BfeHuR/P40uXq4HXfKYfMoP8fPLK9Hj/e39I8NnP7/E//aCQf3pa6YDbIzFSvP5b6v4Bnb1vQb9Iw6eAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTA3LTA4VDA5OjA2OjM4KzAwOjAwXvvS3QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0wNy0wOFQwOTowNjozOCswMDowMC+mamEAAAAASUVORK5CYII=" />
+      </p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p>
+        <img src="./assets/JavaScript_code-GPuQtBOz.png" />
+      </p>
+    </div>
 
-<body>
-  <h1>Quill Image Resize Module Demo</h1>
-  <div id="editor" style="max-height: 500px; overflow: auto">
-    <p>Click on the Image Below to resize</p>
+    <h1>Editor 2</h1>
+    <div id="editor2" style="max-height: 500px; overflow: auto">
+      <p>Click on the Image Below to resize</p>
+      <p>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABZVBMVEWOtd9XkdFYkdCOtuJYktBYktGQteE0escxeMY5fchak9FIh8wzesdGhsxRjc9Tjs9JiM03fMj///+oxucyecZgl9OiwuXW5PT4+v3o8PnA1u6Kst9FhczR4fKdv+SDrt37/P58qdtEhMv0+Pz8/f7p8fnv9Pv9/v8/gcpMis6NtN+QtuD5+/2hwuVUj9AzecZdldKSuOHb6PVAgsqFr93O3/FvodduoNd/q9zl7vjs8/ry9/s7f8nk7fe91O01e8e50ezQ4PJZktFwode60uxfltPN3vHP4PJqntbT4vNnm9X+/v+ryOjF2e8+gMqUueHq8fl4p9rX5fT6/P5Lic17qNre6fa80+xlmtRjmdTG2u/f6va2z+t2pdmxzOmuyulmmtWGsN2Drd33+v3Z5vTD2O7b5/X2+f09gMmHsd6px+fV4/NSjs95p9rs8vrJ3PCJst47fslDhMteltN0pNlsn9ZQjM4oVKdUAAAAB3RSTlNI8vFG8fBFF/1aHQAAAAFiS0dEEnu8bAAAAAAHdElNRQfoBwgJBie91u7SAAABiUlEQVRYw+3XV1PCQBAH8NDMQrCAoqhoVATUgNhQUTTYRcWOHRv23j+/mVxCgoDj3b34kH0i/738hpnbmyQMY2KBuFizhTEBVVkZlg5gGaAsAzAAAzAAAzCAsoDdUbI4bYWzsspRXeMqBzjcJasWdes89Q1elDQ2NfuwAU9LQdiKC/Btbiqg/WeICXT41YvOQDBUFnB2oepGa3uUSzuAgJJwpDcK4OrrHygNqDWIlg9pSQwlw/lgZBQPiMvB2F8nsRgYlwNvghiYQMmkSAoklT2YmiYEZtRdDM3OEQHReW0sFhYJAODiuslKLeEDwKV0wvKKiA2AKPh1RFrEBgBW19Y1IUIASP9iY1MFtrZJAGk7MgFFEMgA6WTvoO4uKQB7qBvDAvaLuwdYwOGRL/87i7rHeIA7fHIqPw4SZ8o4nGMCUuUu0pdX18om5G7wgYK6BTrgDvMs3BfeHuR/P40uXq4HXfKYfMoP8fPLK9Hj/e39I8NnP7/E//aCQf3pa6YDbIzFSvP5b6v4Bnb1vQb9Iw6eAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDI0LTA3LTA4VDA5OjA2OjM4KzAwOjAwXvvS3QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyNC0wNy0wOFQwOTowNjozOCswMDowMC+mamEAAAAASUVORK5CYII=" />
+      </p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p>
+        <img src="./assets/JavaScript_code-GPuQtBOz.png" />
+      </p>
+    </div>
     <p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/64px-Typescript.svg.png" />
+      <label>Text Input:</label>
+      <input />
     </p>
-    <p>Some initial <strong>bold</strong> text</p>
-    <p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/JavaScript_code.png" />
-    </p>
-  </div>
-
-  <h1>Editor 2</h1>
-  <div id="editor2" style="max-height: 500px; overflow: auto">
-    <p>Click on the Image Below to resize</p>
-    <p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/64px-Typescript.svg.png" />
-    </p>
-    <p>Some initial <strong>bold</strong> text</p>
-    <p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/JavaScript_code.png" />
-    </p>
-  </div>
-  <p>
-    <label>Text Input:</label>
-    <input></input>
-  </p>
-</body>
-
+  </body>
 </html>
