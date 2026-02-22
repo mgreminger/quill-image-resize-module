@@ -43,7 +43,7 @@ export class DisplaySize extends BaseModule {
       const dispRect = this.display.getBoundingClientRect();
       Object.assign(this.display.style, {
         right: `-${dispRect.width + 4}px`,
-        bottom: `-${dispRect.height + 4}px`,
+        bottom: "4px",
         left: "auto",
       });
     }

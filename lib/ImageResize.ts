@@ -6,8 +6,13 @@ import { Parchment } from "quill";
 import DefaultOptions from "./DefaultOptions";
 import { DisplaySize } from "./modules/DisplaySize";
 import { Resize } from "./modules/Resize";
+import { AltText } from "./modules/AltText";
 
-const knownModules = { DisplaySize: DisplaySize, Resize: Resize };
+const knownModules = {
+  DisplaySize: DisplaySize,
+  Resize: Resize,
+  AltText: AltText,
+};
 
 /**
  * Custom module for quilljs to allow user to resize <img> elements
@@ -18,7 +23,7 @@ export default class ImageResize {
   quill: Quill;
   options: Options;
   moduleClasses: Modules;
-  modules: (DisplaySize | Resize)[];
+  modules: (DisplaySize | Resize | AltText)[];
   img: HTMLImageElement | null = null;
   overlay: HTMLDivElement | null = null;
 
@@ -114,6 +119,10 @@ export default class ImageResize {
     if (firstImage) {
       this.show(firstImage);
     } else if (this.img) {
+      if (this.overlay && this.overlay.contains(document.activeElement)) {
+        return;
+      }
+
       // clicked on a non image
       this.hide();
     }
@@ -226,6 +235,8 @@ export default class ImageResize {
             this.options.minWidth,
           );
           this.onUpdate();
+        } else {
+          return;
         }
         break;
       case "-":
@@ -235,6 +246,18 @@ export default class ImageResize {
             this.options.minWidth,
           );
           this.onUpdate();
+        } else {
+          return;
+        }
+        break;
+      case "a":
+      case "A":
+      case "F2":
+        const altInput = this.overlay?.querySelector("textarea");
+        if (altInput) {
+          altInput.focus({ preventScroll: false });
+        } else {
+          return;
         }
         break;
       default:

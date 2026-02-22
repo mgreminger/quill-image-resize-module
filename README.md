@@ -5,12 +5,14 @@ A module for Quill rich text editor to allow images to be resized.
 A fork of [kensnyder/quill-image-resize-module](https://github.com/kensnyder/quill-image-resize-module) with the following changes:
 
 - Updated to work with Quill 2
+- Alternative text input added (as of version 1.1.0)
 - Toolbar removed since alignment settings were not preserved in the Quill Delta data structure
 - The presence of resize handles no longer impacts the underlying selection range so keyboard actions such as copy to clipboard and type to replace still work as expected
-- Keyboard shortcuts added to increase image size (+ key) and decrease image size (- key)
+- Keyboard shortcuts added to increase image size (+ key), decrease image size (- key), and to focus alt text input (a key)
 - Resize handles now appear when image is selected with the keyboard (using shift with the arrow keys)
 - Works with touch events in addition to mouse events
 - Add `minWidth` and `keyboardSizeDelta` options for min image width and keyboard + and - size increment (both in pixels)
+- Add `altTextPlaceholder` and `altTextLabel` options for alt text input
 - Modernized toolchain using vite and TypeScript
 - Add Playwright tests
 
@@ -30,7 +32,7 @@ npm install --save-dev @mgreminger/quill-image-resize-module
 
 ```javascript
 import Quill from "quill";
-import ImageResize from "@mgreminger/quill-image-resize-module";;
+import ImageResize from "@mgreminger/quill-image-resize-module";
 
 Quill.register("modules/imageResize", ImageResize);
 
@@ -60,15 +62,17 @@ var quill = new Quill(editorDiv, {
 ```
 
 Functionality is broken down into modules, which can be mixed and matched as you like. For example,
-this config includes all of the modules (this is the default) and uses the default values for `minWidth` and `keyboardSizeDelta`:
+this config includes all of the modules (this is the default) and uses the default values for `minWidth`, `keyboardSizeDelta`, `altTextPlaceholder`, and `altTextLabel`:
 
 ```javascript
 import { type ImageResizeOptions } from "@mgreminger/quill-image-resize-module/dist/types";
 
 const options: ImageResizeOptions = {
-  modules: ["Resize", "DisplaySize"],
+  modules: ["Resize", "DisplaySize", "AltText"],
   minWidth: 13,
-  keyboardSizeDelta: 10
+  keyboardSizeDelta: 10,
+  altTextPlaceholder: "Image description...",
+  altTextLabel: "Alt Text:",
 };
 
 const quill = new Quill(editorDiv, {
@@ -99,7 +103,7 @@ var quill = new Quill(editorDiv, {
         backgroundColor: "black",
         border: "none",
         color: white,
-        // other camelCase styles for size display
+        // other camelCase styles for the resize handles
       },
     },
   },
@@ -123,7 +127,41 @@ var quill = new Quill(editorDiv, {
         backgroundColor: "black",
         border: "none",
         color: white,
-        // other camelCase styles for size display
+        // other camelCase styles for the size display
+      },
+    },
+  },
+});
+```
+
+#### `AltText` - Add alt text input
+
+Adds an input field to edit the alternative text for the image.
+
+The look and feel can be controlled with options:
+
+```javascript
+var quill = new Quill(editorDiv, {
+  // ...
+  modules: {
+    // ...
+    imageResize: {
+      // ...
+      altTextContainerStyles: {
+        border: "1px solid #ccc",
+        padding: "4px 8px",
+        borderRadius: "4px",
+        // other camelCase styles for the alt text container
+      },
+      altTextLabelStyles: {
+        fontWeight: "bold",
+        color: "#333",
+        // other camelCase styles for the alt text input label
+      },
+      altTextTextareaStyles: {
+        border: "1px solid #ddd",
+        borderRadius: "2px",
+        // other camelCase styles for the textarea element
       },
     },
   },
