@@ -37,3 +37,19 @@ test("resize using keyboard shortcuts", async ({ page, browserName }) => {
 
   expect(await page.locator("img").first().getAttribute("width")).toBe("94");
 });
+
+test("setting alt text", async ({ page, browserName }) => {
+  await page.goto('http://localhost:5173/');
+
+  await page.locator('img').first().click();
+  await page.getByRole('textbox', { name: 'Alt Text:' }).click();
+  await page.getByRole('textbox', { name: 'Alt Text:' }).fill('Image one');
+
+  await page.locator('img').nth(1).click();
+  await page.keyboard.press('a'); // keyboard shortcut to focus alt text text area
+  await expect(page.getByRole('textbox', { name: 'Alt Text:' })).toBeFocused();
+  await page.getByRole('textbox', { name: 'Alt Text:' }).fill('Image two');
+
+  await expect(page.locator('img').nth(0)).toHaveAttribute('alt', 'Image one');
+  await expect(page.locator('img').nth(1)).toHaveAttribute('alt', 'Image two');
+});
