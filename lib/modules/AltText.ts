@@ -22,7 +22,7 @@ export class AltText extends BaseModule {
       border: "1px solid #ccc",
       padding: "4px 8px",
       borderRadius: "4px",
-      boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
     });
 
     const label = document.createElement("span");
@@ -46,11 +46,13 @@ export class AltText extends BaseModule {
     });
 
     this.textarea.addEventListener("input", this.handleChange);
-    
-    // Stop mousedown/touchstart propagation so clicking the input 
+
+    // Stop mousedown/touchstart propagation so clicking the input
     // doesn't trigger Quill's selection changes and hide the overlay
     this.textarea.addEventListener("mousedown", this.stopEvent);
-    this.textarea.addEventListener("touchstart", this.stopEvent, { passive: false });
+    this.textarea.addEventListener("touchstart", this.stopEvent, {
+      passive: false,
+    });
     this.textarea.addEventListener("keydown", this.stopEvent);
 
     this.container.appendChild(label);

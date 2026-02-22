@@ -8,7 +8,11 @@ import { DisplaySize } from "./modules/DisplaySize";
 import { Resize } from "./modules/Resize";
 import { AltText } from "./modules/AltText";
 
-const knownModules = { DisplaySize: DisplaySize, Resize: Resize, AltText: AltText };
+const knownModules = {
+  DisplaySize: DisplaySize,
+  Resize: Resize,
+  AltText: AltText,
+};
 
 /**
  * Custom module for quilljs to allow user to resize <img> elements
@@ -116,7 +120,7 @@ export default class ImageResize {
       this.show(firstImage);
     } else if (this.img) {
       if (this.overlay && this.overlay.contains(document.activeElement)) {
-        return; 
+        return;
       }
 
       // clicked on a non image
@@ -251,7 +255,7 @@ export default class ImageResize {
       case "F2":
         const altInput = this.overlay?.querySelector("textarea");
         if (altInput) {
-          altInput.focus({preventScroll: false});
+          altInput.focus({ preventScroll: false });
         } else {
           return;
         }

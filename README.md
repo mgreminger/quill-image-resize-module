@@ -30,7 +30,7 @@ npm install --save-dev @mgreminger/quill-image-resize-module
 
 ```javascript
 import Quill from "quill";
-import ImageResize from "@mgreminger/quill-image-resize-module";;
+import ImageResize from "@mgreminger/quill-image-resize-module";
 
 Quill.register("modules/imageResize", ImageResize);
 

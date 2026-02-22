@@ -3,7 +3,6 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import typescript from "@rollup/plugin-typescript";
 
-
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
@@ -12,7 +11,7 @@ export default defineConfig({
       entry: resolve(__dirname, "lib/ImageResize.ts"),
       name: "ImageResize",
       fileName: (format) => `index.${format}.js`,
-      formats: ['es']
+      formats: ["es"],
     },
     rollupOptions: {
       plugins: [
