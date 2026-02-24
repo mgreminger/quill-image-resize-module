@@ -23,7 +23,7 @@ A fork of [kensnyder/quill-image-resize-module](https://github.com/kensnyder/qui
 ## Installation
 
 ```console
-npm install --save-dev @mgreminger/quill-image-resize-module
+npm install @mgreminger/quill-image-resize-module
 ```
 
 ## Usage
