@@ -29,7 +29,7 @@ export class AltText extends BaseModule {
     this.textarea.addEventListener("touchstart", this.stopEvent, {
       passive: false,
     });
-    this.textarea.addEventListener("keydown", this.stopEvent);
+    this.textarea.addEventListener("keydown", this.handleKeydown);
 
     this.container.appendChild(label);
     this.container.appendChild(this.textarea);
@@ -41,7 +41,7 @@ export class AltText extends BaseModule {
       this.textarea.removeEventListener("input", this.handleChange);
       this.textarea.removeEventListener("mousedown", this.stopEvent);
       this.textarea.removeEventListener("touchstart", this.stopEvent);
-      this.textarea.removeEventListener("keydown", this.stopEvent);
+      this.textarea.removeEventListener("keydown", this.handleKeydown);
     }
 
     if (this.container && this.container.parentNode) {
@@ -60,5 +60,13 @@ export class AltText extends BaseModule {
 
   stopEvent = (evt: Event) => {
     evt.stopPropagation();
+  };
+
+  handleKeydown = (evt: KeyboardEvent) => {
+    evt.stopPropagation();
+    if (evt.key === "Escape" && this.img) {
+      evt.preventDefault();
+      this.hide();
+    }
   };
 }

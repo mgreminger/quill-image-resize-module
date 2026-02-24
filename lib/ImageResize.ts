@@ -260,6 +260,9 @@ export default class ImageResize {
           return;
         }
         break;
+      case "Escape":
+        this.hide();
+        break;
       default:
         return;
     }

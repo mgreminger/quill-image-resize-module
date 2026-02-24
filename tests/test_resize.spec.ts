@@ -53,3 +53,37 @@ test("setting alt text", async ({ page, browserName }) => {
   await expect(page.locator("img").nth(0)).toHaveAttribute("alt", "Image one");
   await expect(page.locator("img").nth(1)).toHaveAttribute("alt", "Image two");
 });
+
+test("esc to hide", async ({ page, browserName }) => {
+  await page.goto("http://localhost:5173/");
+
+  await page.locator("img").first().click();
+
+  await expect(page.locator("text=64 × 64")).toBeVisible();
+
+  await page.keyboard.press("Escape");
+
+  await expect(page.locator("text=64 × 64")).not.toBeVisible();
+});
+
+test("esc to hide with textarea focused", async ({ page, browserName }) => {
+  await page.goto("http://localhost:5173/");
+
+  await page.locator("img").first().click();
+
+  await expect(page.locator("text=64 × 64")).toBeVisible();
+
+  await page.getByRole("textbox", { name: "Alt Text:" }).click();
+  await page
+    .getByRole("textbox", { name: "Alt Text:" })
+    .fill("Image one alt text");
+
+  await page.keyboard.press("Escape");
+
+  await expect(page.locator("text=Alt Text:")).not.toBeVisible();
+
+  await expect(page.locator("img").nth(0)).toHaveAttribute(
+    "alt",
+    "Image one alt text",
+  );
+});

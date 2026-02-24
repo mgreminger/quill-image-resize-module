@@ -6,12 +6,14 @@ export class BaseModule {
   img: HTMLImageElement | null;
   options: Options;
   requestUpdate: () => void;
+  hide: () => void;
 
   constructor(resizer: ImageResize) {
     this.overlay = resizer.overlay;
     this.img = resizer.img;
     this.options = resizer.options;
     this.requestUpdate = resizer.onUpdate;
+    this.hide = resizer.hide;
   }
   /*
     requestUpdate (passed in by the library during construction, above) can be used to let the library know that
